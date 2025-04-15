@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Porcentagem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    .calculator {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 300px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <h2>Calculadora de Porcentagem</h2>
+  <label for="valor">Valor:</label>
+  <input type="number" id="valor" placeholder="Ex: 200">
+
+  <label for="porcentagem">Porcentagem (%):</label>
+  <input type="number" id="porcentagem" placeholder="Ex: 10">
+
+  <button onclick="calcularPorcentagem()">Calcular</button>
+
+  <div id="resultado"></div>
+</div>
+
+<script>
+  function calcularPorcentagem() {
+    const valor = parseFloat(document.getElementById('valor').value);
+    const porcentagem = parseFloat(document.getElementById('porcentagem').value);
+
+    if (isNaN(valor) || isNaN(porcentagem)) {
+      document.getElementById('resultado').innerText = "Por favor, preencha os dois campos corretamente.";
+      return;
+    }
+
+    const resultado = (valor * porcentagem) / 100;
+    document.getElementById('resultado').innerText = `${porcentagem}% de ${valor} é ${resultado}`;
+  }
+</script>
+
+</body>
+</html>
